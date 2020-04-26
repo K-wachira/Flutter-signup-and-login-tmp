@@ -18,7 +18,7 @@ class _loginandsignupState extends State<loginandsignup> {
   String errors = "";
   String passerrors = '';
 
-   passvalidation() {
+  passvalidation() {
     final form = formKey.currentState;
     form.save();
     if (_password == _password1) {
@@ -80,16 +80,22 @@ class _loginandsignupState extends State<loginandsignup> {
     return loading
         ? loadingwidget()
         : Scaffold(
+            resizeToAvoidBottomPadding: false,
+            backgroundColor: Colors.teal[200],
             appBar: AppBar(
               title: Text("Login and signup"),
             ),
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                      child: (_isVisible) ? _getLoginfrom() : _getSignupForm()),
-                ],
+            body: SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Image.asset('assets/images/emirates.png'),
+                    Container(
+                        child:
+                            (_isVisible) ? _getLoginfrom() : _getSignupForm()),
+                  ],
+                ),
               ),
             ),
           );
